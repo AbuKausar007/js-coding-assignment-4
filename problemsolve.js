@@ -77,20 +77,27 @@ console.log(outputArray);
 // Problem 5: A function named gemsToDiamond, which takes 3 input parameters. 1st parameter gems power is 21, 2nd gems power 32, 3rd gems power 43. 
 
 function gemsToDiamond(num1,num2,num3){
-    if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof num3 !== 'number') {
+
+    if (arguments.length !== 3) {
+        return "Please give 3 input!!";
+    }
+    else if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof num3 !== 'number') {
         return "Please give number only!!";
     }
-    const   gemNum1Produce = num1 * 21;
-    const   gemNum2Produce = num2 * 32;
-    const   gemNum3Produce = num3 * 43;
-    const   diamondProduce = gemNum1Produce + gemNum2Produce + gemNum3Produce;
-    if (diamondProduce >= 1000*2){
-        const diamondWeWillGet = diamondProduce - 2000;
-        return diamondWeWillGet;
+    else {
+        const gemNum1Produce = num1 * 21;
+        const gemNum2Produce = num2 * 32;
+        const gemNum3Produce = num3 * 43;
+        const diamondProduce = gemNum1Produce + gemNum2Produce + gemNum3Produce;
+        if (diamondProduce >= 1000 * 2) {
+            const diamondWeWillGet = diamondProduce - 2000;
+            return diamondWeWillGet;
+        }
+        else if (diamondProduce < 1000 * 2) {
+            return diamondProduce;
+        }
     }
-    else if(diamondProduce < 1000*2){
-        return diamondProduce;
-    }
+    
 }
 
 const totalDiamond = gemsToDiamond(100,5,1);
